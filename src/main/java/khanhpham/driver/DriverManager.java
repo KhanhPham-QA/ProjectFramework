@@ -1,6 +1,8 @@
 package khanhpham.driver;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 
 public class DriverManager {
 
@@ -19,6 +21,14 @@ public class DriverManager {
             getDriver().quit();
             driver.remove();
         }
+    }
+
+    public static boolean isIos (){
+        return getDriver() instanceof IOSDriver;
+    }
+
+    public static boolean isAndroid (){
+        return getDriver() instanceof AndroidDriver;
     }
 
 }

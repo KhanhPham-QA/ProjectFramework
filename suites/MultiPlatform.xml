@@ -1,0 +1,33 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite run multiple platform" verbose="1" parallel="tests" thread-count="2" group-by-instances="true">
+<!--        <suite name="Suite Regression Test" verbose="1" parallel="tests">-->
+<!--        <listeners>-->
+<!--            <listener class-name="khanhpham.listeners.TestListener"/>-->
+<!--        </listeners>-->
+    <test name="Platform Android Test 1 - Taurus App">
+        <parameter name="platformName" value="Android"/>
+        <parameter name="deviceName" value="pixel9"/>
+<!--        <parameter name="udid" value="emulator-5554"/>-->
+        <parameter name="host" value="127.0.0.1"/>
+        <parameter name="port" value="8000"/>
+        <parameter name="systemPort" value="8002"/>
+        <classes>
+            <class name="khanhpham.testcases.LoginTest"/>
+            <class name="khanhpham.testcases.WebViewTest"/>
+        </classes>
+    </test>
+
+    <test name="Platform Android Test 2 - Taurus App">
+        <parameter name="platformName" value="Android"/>
+        <parameter name="deviceName" value="pixel10"/>
+<!--        <parameter name="udid" value="emulator-5556"/>-->
+        <parameter name="host" value="127.0.0.1"/>
+        <parameter name="port" value="8001"/>
+        <parameter name="systemPort" value="8003"/>
+        <classes>
+            <class name="khanhpham.testcases.LoginTest"/>
+            <class name="khanhpham.testcases.WebViewTest"/>
+        </classes>
+    </test>
+</suite>

@@ -2,24 +2,24 @@
   "platforms": {
     "android": {
       "devices": {
-        "pixel9": {
+        "pixel10": {
           "platformName": "Android",
-          "platformVersion": "16",
+          "platformVersion": "17",
           "automationName": "UiAutomator2",
-          "deviceName": "Pixel_9_Pro_XL_API_36",
-          "appPackage": "com.anhtester.mobile_app.taurus",
-          "appActivity": "com.anhtester.mobile_app.taurus.MainActivity",
+          "deviceName": "Pixel_10_Pro_XL",
+          "appPackage": "com.saucelabs.mydemoapp.android",
+          "appActivity": ".view.activities.SplashActivity",
           "noReset": false,
           "fullReset": false,
           "autoGrantPermissions": true
         },
-        "pixel8": {
+        "pixel9": {
           "platformName": "Android",
-          "platformVersion": "14",
+          "platformVersion": "15",
           "automationName": "UiAutomator2",
-          "deviceName": "Pixel_9_Pro_XL_API_34",
-          "appPackage": "com.anhtester.mobile_app.taurus",
-          "appActivity": "com.anhtester.mobile_app.taurus.MainActivity",
+          "deviceName": "Pixel_9_Pro_XL_2",
+          "appPackage": "com.saucelabs.mydemoapp.android",
+          "appActivity": ".view.activities.SplashActivity",
           "noReset": false,
           "fullReset": false,
           "autoGrantPermissions": true
@@ -27,6 +27,18 @@
       }
     },
     "ios": {
+      "devices": {
+        "iphone18": {
+          "platformName": "iOS",
+          "platformVersion": "27.0",
+          "automationName": "XCUITest",
+          "deviceName": "iPhone 18 Pro",
+          "udid": "FC644D0A-2AA1-49E2-B850-47968DC8CE3A",
+          "bundleId": "com.saucelabs.mydemo.app.ios",
+          "noReset": false,
+          "fullReset": false
+        }
+      }
     }
   }
 }

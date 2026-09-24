@@ -66,10 +66,10 @@ public class CaptureHelper {
     }
 
     // Dừng ghi video và lưu file
-    public static void stopRecording(String fileName) {
+    public static File stopRecording(String fileName) {
         if (DriverManager.getDriver() != null) {
             try {
-                String base64Video = ((CanRecordScreen) ((AndroidDriver) DriverManager.getDriver())).stopRecordingScreen();
+                String base64Video = ((CanRecordScreen) ( DriverManager.getDriver())).stopRecordingScreen();
                 LogHelper.info("Base64 video length: " + (base64Video != null ? base64Video.length() : "null"));
                 if (base64Video != null && !base64Video.isEmpty()) {
                     byte[] videoBytes = Base64.getDecoder().decode(base64Video);
@@ -82,6 +82,7 @@ public class CaptureHelper {
                         fos.write(videoBytes);
                     }
                     LogHelper.info("Video được lưu tại: " + videoFile.getAbsolutePath() + " (Size: " + videoFile.length() + " bytes)");
+                    return videoFile;
                 } else {
                     LogHelper.error("Không có dữ liệu video để lưu.");
                 }
@@ -89,6 +90,7 @@ public class CaptureHelper {
                 LogHelper.info("Lỗi khi dừng ghi video: " + e.getMessage());
             }
         }
+        return null;
     }
 
     // Thêm hàm này để tắt quay video mà KHÔNG lưu ra file
@@ -96,7 +98,7 @@ public class CaptureHelper {
         if (DriverManager.getDriver() != null) {
             try {
                 // Chỉ gọi lệnh stop của Appium để giải phóng RAM, lấy chuỗi base64 nhưng KHÔNG làm gì với nó cả (Vứt đi)
-                ((CanRecordScreen) ((AndroidDriver) DriverManager.getDriver())).stopRecordingScreen();
+                ((CanRecordScreen) ( DriverManager.getDriver())).stopRecordingScreen();
                 LogHelper.info("Đã hủy video vì test chạy Pass.");
             } catch (Exception e) {
                 LogHelper.error("Lỗi khi hủy video: " + e.getMessage());
